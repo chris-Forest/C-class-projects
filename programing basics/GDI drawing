@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 using GDIDrawer;
 
-
+//use console to draw a circle in gdi window 
 namespace assignment_5
 {
     class Program
