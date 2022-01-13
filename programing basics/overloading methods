@@ -1,0 +1,246 @@
+//***********************************************************************************
+//Program:     Assignment 9 method overloading
+//Description: making method overloads and creating a class library 
+//Author:      Chris Forest
+//***********************************************************************************
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Utilities
+{
+    public class CUtilities
+    {
+        //********************************************************************************************
+        //Method:     static public void GetValue(out int numInput, string prompt)
+        //Purpose:    Inputs an integer value with error checking
+        //Parameters: string prompt - prompt to display to the user
+        //            int munInput- user inpur for a number
+        //Returns:    values returned via refrences
+        //*********************************************************************************************
+        static public void GetValue(out int numInput, string prompt)
+        {
+            numInput = 0;       // int input ny user
+            bool valid = false; // error flag ,will check if conditions are met
+
+            // repeat until value is true and in range
+            while (!valid)
+            {
+                // wording set in main()
+                Console.Write(prompt);
+
+                // user input for value
+                valid = int.TryParse(Console.ReadLine(), out numInput);
+
+                //error if not a valid number
+                if (!valid)
+                {
+                    Console.WriteLine("An invalid number was entered, please try again.");
+                }
+
+            }
+        }
+        //********************************************************************************************
+        //Method:     static public void GetValue(out int numInput, string prompt, int min)
+        //Purpose:    Inputs an integer value with error and range checking
+        //Parameters: string prompt - prompt to display to the user
+        //            int min - minimum value accepted
+        //            int numInput- user inpur for a number
+        //Returns:    any returns are wuth refrences  
+        //*********************************************************************************************
+        static public void GetValue(out int numInput, string prompt, int min)
+        {
+            numInput = 0;      // int input ny user
+            bool valid = false; // error flag ,will check if conditions are met
+
+            // repeat until value is true and in range
+            while (!valid)
+            {
+                // wording set in main()
+                Console.Write(prompt);
+
+                // user input for value
+                valid = int.TryParse(Console.ReadLine(), out numInput);
+
+                //error if not a valid number
+                if (!valid)
+                {
+                    Console.WriteLine("An invalid number was entered, please try again.");
+                }
+
+
+                // if value is less than set minium, error message
+                if (numInput < min)
+                {
+                    Console.WriteLine("input is lower then minium");
+                    valid = false;
+                }
+            }
+
+        }
+
+        //********************************************************************************************
+        //Method:     static public void GetValue(out int numInput, string prompt, int min, int max)
+        //Purpose:    Inputs an integer value with error and range checking
+        //Parameters: string prompt - prompt to display to the user
+        //            int min - minimum value accepted
+        //            int numInput- user inpur for a number
+        //            int max - max value accepted
+        //Returns:    any returns are wuth refrences  
+        //*********************************************************************************************
+        static public void GetValue(out int numInput, string prompt, int min, int max)
+        {
+            numInput = 0;      // int input ny user
+            bool valid = false; // error flag ,will check if conditions are met
+
+            // repeat until value is true and in range
+            while (!valid)
+            {
+                // wording set in main()
+                Console.Write(prompt);
+
+                // user input for value
+                valid = int.TryParse(Console.ReadLine(), out numInput);
+
+                //error if not a valid number
+                if (!valid)
+                {
+                    Console.WriteLine("An invalid number was entered, please try again.");
+                }
+
+
+                // if value is less than set minium, error message
+                if (numInput < min)
+                {
+                    Console.WriteLine("input is lower then minium");
+                    valid = false;
+                }
+
+                //if value is over maxium, error message
+                if (numInput > max)
+                {
+                    Console.WriteLine("input is higher then max value");
+                    valid = false;
+                }
+            }
+        }
+
+        //********************************************************************************************
+        //Method:     static public void GetValue(out double numInput, string prompt)
+        //Purpose:    Inputs a double value with error checking
+        //Parameters: string prompt - prompt to display to the user
+        //            double numInput- user inpur for a number
+        //Returns:    values returned via refrences
+        //*********************************************************************************************
+        static public void GetValue(out double numInput, string prompt)
+        {
+            numInput = 0;       // int input ny user
+            bool valid = false; // error flag ,will check if conditions are met
+
+            // repeat until value is true and in range
+            while (!valid)
+            {
+                // wording set in main()
+                Console.Write(prompt);
+
+                // user input for value
+                valid = double.TryParse(Console.ReadLine(), out numInput);
+
+                //error if not a valid number
+                if (!valid)
+                {
+                    Console.WriteLine("An invalid number was entered, please try again.");
+                }
+
+            }
+        }
+
+        //********************************************************************************************
+        //Method:     static public void GetValue(out double numInput, string prompt, double min)
+        //Purpose:    Inputs a double value with error and range checking
+        //Parameters: string prompt - prompt to display to the user
+        //            double min - minimum value accepted
+        //            double numInput- user inpur for a number
+        //Returns:    any returns are with refrences  
+        //*********************************************************************************************
+        static public void GetValue(out double numInput, string prompt, double min)
+        {
+            numInput = 0;      // int input ny user
+            bool valid = false; // error flag ,will check if conditions are met
+
+            // repeat until value is true and in range
+            while (!valid)
+            {
+                // wording set in main()
+                Console.Write(prompt);
+
+                // user input for value
+                valid = double.TryParse(Console.ReadLine(), out numInput);
+
+                //error if not a valid number
+                if (!valid)
+                {
+                    Console.WriteLine("An invalid number was entered, please try again.");
+                }
+
+
+                // if value is less than set minium, error message
+                if (numInput < min)
+                {
+                    Console.WriteLine("input is lower then minium");
+                    valid = false;
+                }
+            }
+
+        }
+
+        //********************************************************************************************
+        //Method:     static public void GetValue(out double numInput, string prompt, double min, double max)
+        //Purpose:    Inputs a double value with error and range checking
+        //Parameters: string prompt - prompt to display to the user
+        //            double min - minimum value accepted
+        //            double numInput- user inpur for a number
+        //            double max - max value accepted
+        //Returns:    any returns are wuth refrences  
+        //*********************************************************************************************
+        static public void GetValue(out double numInput, string prompt, double min, double max)
+        {
+            numInput = 0;      // int input ny user
+            bool valid = false; // error flag ,will check if conditions are met
+
+            // repeat until value is true and in range
+            while (!valid)
+            {
+                // wording set in main()
+                Console.Write(prompt);
+
+                // user input for value
+                valid = double.TryParse(Console.ReadLine(), out numInput);
+
+                //error if not a valid number
+                if (!valid)
+                {
+                    Console.WriteLine("An invalid number was entered, please try again.");
+                }
+
+
+                // if value is less than set minium, error message
+                if (numInput < min)
+                {
+                    Console.WriteLine("input is lower then minium");
+                    valid = false;
+                }
+
+                //if value is over maxium, error message
+                if (numInput > max)
+                {
+                    Console.WriteLine("input is higher then max value");
+                    valid = false;
+                }
+            }
+        }
+    }
+}
