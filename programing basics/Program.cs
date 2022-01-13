@@ -1,0 +1,188 @@
+﻿//***********************************************************************************
+//Program:     assignment 10 method arrays
+//Description: Calculates body mass index of user
+//Date:        Nov. 21/2019
+//Author:      Chris Forest
+//Course:      CMPE1300
+//Class:       CNTA03
+//***********************************************************************************
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Utilities;
+
+namespace A10
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int sizeOfArray; // size of Array determined by user
+            int[] vArray;    // initalizing array
+            int largeIndex;  // posistion of largest number
+            int largeValue;  // largest number in array
+            string runAgain; // string to ask the user to run program again
+
+            // displays title
+            Console.WriteLine("\t\t\t\t\tChris Forest assignment 10");
+
+            do
+            {
+                // user input for array size
+                CUtilities.GetValue(out sizeOfArray, "Enter the size of the array: ", 4, 10);
+
+                // give the size fof array when givien by user
+                vArray = new int[sizeOfArray];
+                Console.WriteLine();
+
+                // makes the array
+                vArray = makeArray(sizeOfArray);
+                Console.WriteLine();
+
+                // displays array contents
+                Show(vArray, sizeOfArray);
+                Console.WriteLine();
+
+                // displays array contents in reverse order
+                ShowReverse(vArray, sizeOfArray);
+                Console.WriteLine();
+
+                // displays the average of the array
+                Console.WriteLine($"The average is {Average(vArray,sizeOfArray)}\n");
+
+                // displays the largest number in the array and what array posistion
+                largest(vArray, sizeOfArray, out largeValue, out largeIndex);
+                Console.WriteLine($"The largest value is {largeValue} at array location {largeIndex}.");
+
+                //prompt to ask user to run again
+                Console.WriteLine("\nRun program again? (y/n): ");
+                runAgain = Console.ReadLine();
+
+            } while (runAgain == "y" || runAgain == "Y");
+            // loops user when "y" is entered
+        }
+
+        //********************************************************************************************
+        //Method:     static private double Average(int[] arrayValues, double aSize)
+        //Purpose:    average all numbers in the array
+        //Parameters: int[] arrayValues- the calculated average of the array
+        //            double aSize- avg number will be a double value
+        //Returns:    average /= index- the avg of the array
+        //*********************************************************************************************
+        static private double Average(int[] arrayValues, double aSize)
+        {
+            int index;          // adds array numbers 
+            double average = 0; // avg of array
+
+            // loop to count the array
+            for (index = 0; index < aSize; index++)
+            {
+                // adds the array up to be averaged 
+                average += arrayValues[index];   
+            }
+            // avgs the array as a double 
+            return average /= index;
+        }
+
+        //********************************************************************************************
+        //Method:     static private void ShowReverse(int[] arrayValues, int aSize)
+        //Purpose:    reversedisplay array
+        //Parameters: int[] arrayValues- array is counted
+        //            int aSize- size of array 
+        //Returns:    no return method called in main
+        //*********************************************************************************************
+        static private void ShowReverse(int[] arrayValues, int aSize)
+        {
+            int index; //count array in loop
+
+            // display message
+            Console.WriteLine("the array in reverse... ");
+
+            //  loop to count the array but in reverse
+            for (index = aSize-1; -1 < index; index--)
+            {
+                // display array
+                Console.WriteLine($"array[{index}] = {arrayValues[index]}");
+            }
+        }
+
+        //********************************************************************************************
+        //Method:     static private void Show(int[] arrayValues, int aSize)
+        //Purpose:     display array
+        //Parameters: int[] arrayValues- array is counted
+        //            int aSize- size of array 
+        //Returns:    no return method called in main
+        //*********************************************************************************************
+        static private void Show(int[]arrayValues, int aSize)
+        {
+            int index; //count array in loop
+
+            // display message
+            Console.WriteLine("the array contains... ");
+
+            // loop to count the array 
+            for (index=0;index < aSize; index++)
+            {
+                // display array
+                Console.WriteLine($"array[{index}] = {arrayValues[index]}");
+            }
+        }
+
+        //********************************************************************************************
+        //Method:     static private int[] makeArray(int aSize)
+        //Purpose:    makes array
+        //Parameters: int aSize- for size of array 
+        //Returns:    return nArray- array size by user input
+        //*********************************************************************************************
+        static private int[] makeArray(int aSize)
+        {
+            Random RanGen = new Random(); //object for getting random numbers
+            int nIndex;                   //for accessing array elements
+            int[] nArray;                 //array containing random data
+            
+            //prompt user for size of array
+            Console.ForegroundColor = ConsoleColor.White;
+            nArray = new int[aSize];
+            Console.WriteLine();
+
+            //iterate through array only once
+            for (nIndex = 0; nIndex < aSize; nIndex++)
+            {
+                //store a random number
+                nArray[nIndex] = RanGen.Next(0, 101);
+            }
+            return nArray;
+        }
+
+        //********************************************************************************************
+        //Method:     static private void largest(int[] aValue,int size, out int largeestValue, out int index)
+        //Purpose:    show largest number in array
+        //Parameters: int[] aValue- for largest value to be found in array and index posistion
+        //            int size- size of array as per user input
+        //            out int largeestValue- largest number in array
+        //            out int index- posistion of number
+        //Returns:    valuse returned with refrences  
+        //*********************************************************************************************
+        static private void largest(int[] aValue,int size, out int largeestValue, out int index)
+        {
+            int lCount;        // count array in loop to find largest number
+            index = 0;         // index varaible
+            largeestValue = 0; // lage value varaible
+
+            // loop for size of array
+            for(lCount=0;lCount < size;lCount++)
+            {
+                // if value is greater than largest number....
+                if(aValue[lCount] > largeestValue)
+                {
+                    // assign index and value as intehers and out them
+                    largeestValue = aValue[lCount];
+                    index = lCount;     
+                }
+            } 
+        }
+    }
+}
