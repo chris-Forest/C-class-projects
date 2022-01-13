@@ -1,0 +1,189 @@
+//***********************************************************************************
+//Program:     Assignment 12
+//Description: makes 2 arrays with random names and grades
+//Author:      Chris Forest
+//***********************************************************************************
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Utilities;
+
+namespace A12
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string runAgain;    // string to ask the user to run program again
+            int sizeOfArray;    // size of Array determined by user
+            string[] sArray;    // initalizing array for names
+            double[] numArray;  // initalize array for grades
+
+            // displays title
+            Console.WriteLine("\t\t\t\t\tChris Forest assignment 12");
+
+            do
+            {
+                // user input for array size
+                CUtilities.GetValue(out sizeOfArray, "Enter the the number of students in the class: ", 4, 10);
+
+                // create both arrays filled with names and grades
+                makeRecords(sizeOfArray, out sArray, out numArray);
+
+                // display both arrays 
+                Show(sArray, numArray);
+
+                // avg of grades made
+                Average(sArray, numArray);
+
+                // disply who failed
+                fails(sArray, numArray);
+
+                // ask to run program again
+                Console.WriteLine("\nRun program again? (y/n): ");
+                runAgain = Console.ReadLine();
+
+            } while (runAgain == "y" || runAgain == "Y");
+            // loops user when "y" is entered
+        }
+
+        //********************************************************************************************
+        //Method:     static private void fails(string[] arrayString, double[] aGrades)
+        //Purpose:    display who failed
+        //Parameters: string[] arrayString- student names
+        //            double[]aGrades- student grades
+        //Returns:    void- returns no value
+        //*********************************************************************************************
+        static private void fails(string[] arrayString, double[] aGrades)
+        {
+            int count; //count through array
+
+            Console.WriteLine("\nHere is a list of failing students...");
+            Console.WriteLine("\n           Name   mark\n           ----   ----");
+
+            //
+            for(count=0;count<aGrades.Length;count++)
+                if(aGrades[count]<50)
+                {
+                    Console.CursorLeft = 15 - arrayString[count].Length;
+                    Console.WriteLine($"{arrayString[count]} : {aGrades[count]:0.0}");
+                }
+        }
+
+        //********************************************************************************************
+        //Method:     static private void Average(int[] arrayString, double[]aGrades)
+        //Purpose:    average all numbers in the array
+        //Parameters: string[] arrayString- student names
+        //            double[]aGrades- student grades
+        //Returns:    void- returns no value
+        //*********************************************************************************************
+        static private void Average(string[] arrayString, double[]aGrades)
+        {
+            int count;          // adds array numbers 
+            double average = 0; // avg of array
+            double close;       // closest grade to average
+
+            // loop to count the array
+            for (count = 0; count < aGrades.Length; count++)
+            {
+                // adds the array up to be averaged 
+                average += aGrades[count];
+            }
+            average /= aGrades.Length;
+            Console.WriteLine($"\nThe average of all marks is {average:0.0}%");
+
+            close = aGrades[0];
+
+            for (count = 1; count < aGrades.Length; count++)
+            {
+                //  find student closest to average
+                if (Math.Abs(aGrades[count] - average) < Math.Abs(close - average))
+                    close = aGrades[count];
+            }
+            // display student closest to averge
+            Console.WriteLine($"{arrayString[Array.IndexOf(aGrades, close)]} with {close:0.0} is closest to the average");
+
+        }
+
+        //********************************************************************************************
+        //Method:     static private void Show(string[] arrayString, double[] aGrades)
+        //Purpose:    display grades, student names
+        //Parameters: string[] arrayString- array for student names
+        //            double[] aGrades- array for students grades
+        //Returns:    no return method is void
+        //*********************************************************************************************
+        static private void Show(string[] arrayString, double[] aGrades)
+        {
+            int count; //count array in loop
+
+            // display message     5       5
+            Console.WriteLine("\n          Name    mark\n           ----   ----");
+
+            // loop to count the array 
+            for (count = 0; count < aGrades.Length; count++)
+            {
+                // display array
+                Console.CursorLeft = 15 - arrayString[count].Length;
+                Console.WriteLine($"{arrayString[count]} : {aGrades[count]:0.0}");
+            }
+        }
+
+        //********************************************************************************************
+        //Method:     static  private void makeRecords(int sizeOfArray, out string[] nArray, out double[] aGrades)
+        //Purpose:    makes a recod of studnets names and their grades
+        //Parameters: out string[] arrayString- array for student names
+        //            out double[] aGrades- array for students grades
+        //            int sizeOfArray- for randomly generated size of arrays
+        //Returns:    no return method is void valuse leave with efrences
+        //*********************************************************************************************
+        static private void makeRecords(int sizeOfArray, out string[] nArray, out double[] aGrades)
+        {
+            Random random = new Random();      // random generator
+            nArray = new string[sizeOfArray];  // stores names
+            aGrades = new double[sizeOfArray]; // stores grades
+            int nCount;                        // count for names array
+            int gCount;                        // count for grades array
+            int nLength;                       // to generate rdm lenghts of names
+            string names;                      // stores names in array
+
+            // fill with random grades
+            for(gCount=0;gCount<sizeOfArray;gCount++)
+            {
+                aGrades[gCount] = random.Next(0, 101);
+
+                // grades can't go over 100%
+                if (aGrades[gCount] < 100)
+                    aGrades[gCount] += random.NextDouble();
+            }
+
+            // array fill rdm names
+            for (gCount = 0; gCount < sizeOfArray; gCount++)
+            {
+                // initalize nmaes and length of size
+                names = "";
+                nLength = random.Next(5, 13);
+
+                // make rdm names
+                for (nCount = 0; nCount < nLength; nCount++)
+                {
+                    // first letter is upper case
+                    if (nCount == 0)
+                    {
+                        names = names + (char)random.Next(65, 91);
+                    }
+                    else
+                    // all other letters are lower case
+                    if (nCount > 0)
+                    {
+                        names = names + (char)random.Next(97, 122);
+                    }
+                }
+                // store names in array
+                nArray[gCount] = names;
+            }
+        }
+    }
+}
