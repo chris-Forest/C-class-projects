@@ -1,0 +1,96 @@
+//********************************************************
+// Chris Forest assignment 14
+//********************************************************
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Drawing;
+using GDIDrawer;
+using Utilities;
+
+namespace A14
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Random rando = new Random();                // create a rdm generator  
+            string runAgain;                            // string to ask the user to run program again
+            const int WIDTH = 800;                      // set GDI window width   
+            const int HIGHT = 600;                      // set GDI window hight   
+            const int SCALE = 15;                       // set GDI window scale     
+            CDrawer drawer = new CDrawer(WIDTH, HIGHT); // set GDI window size
+            drawer.Scale = SCALE;                       // initialize scale for GDI window    
+            int[,] array = new int[WIDTH, HIGHT];       // holds array x and y postion for the rectangles     
+            int square;                                 // user inputy to enter the # of squares 
+            int rowRandom;                              // draw square at random row posistion
+            int columnRandom;                           // draw square at random colum posistion
+            int count1;                                 // count for loops 
+            int count2;                                 // count in nested loops 
+
+            // displays title
+            Console.WriteLine("\t\t\tChris Forest assignment 14");
+            Console.SetWindowSize(60,10);
+
+            do
+            {
+                drawer.Clear();
+
+                // user input for asking number of squares to be displayed
+                CUtilities.GetValue(out square, $"Enter the number of squares to display (max {WIDTH / SCALE * HIGHT / SCALE}): ", 100, WIDTH / SCALE * HIGHT / SCALE);
+
+                // intalize array with zeros
+                for (count1 = 0; count1 < WIDTH / SCALE; count1++)
+                    for (count2 = 0; count2 < HIGHT / SCALE; count2++)
+                        array[count1, count2] = 0;
+
+                //generate values in random locations until max squares are reached
+                for(count1=0;count1<square;count1++)
+                {
+                    rowRandom = rando.Next(0, WIDTH / SCALE);
+                    columnRandom = rando.Next(0, HIGHT / SCALE);
+
+                    //if array value is zero, set it to 1 and draw it at the (x,y) location
+                    if (array[rowRandom, columnRandom] == 0)
+                    {
+                        array[rowRandom, columnRandom] = 1;
+                        drawer.AddCenteredRectangle(rowRandom, columnRandom, 1, 1, Color.Yellow);
+                    }
+                    //if array value is 1, do not count it
+                    else
+                        count1--;
+                }
+
+                //ask user to press any key to invert and re-dsiplay array
+                Console.Write("Press any key to invert and re-display array: ");
+                Console.ReadKey();
+                drawer.Clear();
+
+                // inverting the array
+                for (count1 = 0; count1 < WIDTH / SCALE; count1++)
+                    for (count2 = 0; count2 < HIGHT / SCALE; count2++)
+                    {
+                        // change o array values to 1 and draw
+                        if(array[count1,count2]==0)
+                        {
+                            array[count1, count2] = 1;
+                            drawer.AddCenteredRectangle(count1, count2, 1, 1, Color.Yellow);
+                        }
+                        // change 1 array values to 0
+                        else
+                        if(array[count1, count2] == 1)
+                            array[count1, count2] = 0;
+                    }
+
+                        // ask to run program again
+                        Console.WriteLine("\ncreate another grid? (y/n): ");
+                runAgain = Console.ReadLine();
+
+            } while (runAgain == "y" || runAgain == "Y");
+            // loops user when "y" is entered
+        }
+    }
+}
