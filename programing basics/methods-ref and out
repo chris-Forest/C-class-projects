@@ -1,10 +1,7 @@
 ﻿//********************************************************
-//Program:     Methods Assignment 8
-//Description: create a running total for time on a cd
-//Date:        nov. 12/2019
+//Program:     Methods Assignment 8-ref and out
+//Description: create a running total for time on a cd's
 //Author:      Chris Forest
-//Course:      CMPE1300
-//Class:       CNTA03
 //********************************************************
 
 using System;
