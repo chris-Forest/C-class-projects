@@ -1,0 +1,292 @@
+//***********************************************************************************
+//Program:     Assignment 13
+//Description: writing and reading text files
+//Author:      Chris Forest
+//***********************************************************************************
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Utilities;
+using System.IO;
+
+namespace A13
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int count;
+            int sizeOfArray;          // size of Array determined by user
+            string[] sArray=null;     // initalizing array for names
+            double[] numArray=null;   // initalize array for grades
+            ConsoleKeyInfo selection; // tracks what the user inputs from the menu selection
+            StreamWriter write;       // write randomly generated data to a tetx file
+            StreamReader read;        // read a text flie 
+            string text;              // string for text files
+
+            // displays title
+            Console.WriteLine("\t\t\tChris Forest assignment 13");
+
+            //Displey menu
+            Console.WriteLine("\n\nSelect a menu option..\n");
+            Console.WriteLine("r. Read student data from a file.");
+            Console.WriteLine("w. Write student data to a file.");
+            Console.WriteLine("g. Generate random student data.");
+            Console.WriteLine("a. Display the average of random student data.");
+            Console.WriteLine("f. Display a lsit of failing students.");
+            Console.WriteLine("m. Display menu.");
+            Console.WriteLine("q. Quit the program.");
+
+            do
+            {
+                //inout for user selection
+                Console.Write("\nYour selection: ");
+                selection = Console.ReadKey();
+                
+                //read data from a file
+                if(selection.Key==ConsoleKey.R)
+                {
+                    try
+                    {
+                        //get file name to read from 
+                        Console.Write("\n\nInput a file naed to read: ");
+                        read = new StreamReader($"{Console.ReadLine()}.txt");
+
+                        Console.WriteLine("\n           Name   mark\n           ----   ----");
+
+                        //read each line in text file until end of file
+                        for(count=0; read.EndOfStream == false; count++)
+                        {
+                            text = read.ReadLine();
+                            Console.CursorLeft = 22 - text.Length;
+                            Console.WriteLine(text);
+                        }
+                        read.Close();
+                    }
+                    catch(Exception error)
+                    {
+                        Console.WriteLine(error.Message);
+                    }
+                }
+
+                //write data to a file
+                if(selection.Key==ConsoleKey.W)
+                {
+                    try
+                    {
+                        //make file name to write to 
+                        Console.Write("\n\nInput a file name to write: ");
+                        write = new StreamWriter($"{Console.ReadLine()}.txt");
+
+                        Console.WriteLine("\n           Name   mark\n           ----   ----");
+
+                        //read each line in text file until end of file
+                        for (count = 0; count<sArray.Length; count++)
+                        {
+                            write.WriteLine($"{sArray[count]} : {numArray[count]:0.0}");
+                        }
+                        write.Close();
+                    }
+                    catch (Exception error)
+                    {
+                        Console.WriteLine(error.Message);
+                    }
+                }
+
+                // generate the random grades when g is pressed
+                if (selection.Key == ConsoleKey.G)
+                {
+                    // user input for array size
+                    CUtilities.GetValue(out sizeOfArray, "\nEnter the the number of students in the class: ", 4, 10);
+                    makeRecords(sizeOfArray, out sArray, out numArray);
+                    Console.WriteLine("Data generated, displaying now: ");
+                    Show(sArray, numArray);
+                }
+
+                //average and display grades when a is pressed
+                if (selection.Key == ConsoleKey.A)
+                {
+                    try
+                    {
+                        // avg of grades made
+                        if (sArray.Length > 0)
+                            Average(sArray, numArray);
+                    }
+                    catch
+                    {
+                        Console.WriteLine("\n\nData needs to be generated first");
+                    }
+                }
+
+                // display the students who failed when f is pressed
+                if (selection.Key == ConsoleKey.F)
+                {
+                    try
+                    {
+                        if (sArray.Length > 0)
+                            fails(sArray, numArray);
+                    }
+                    catch
+                    {
+                        Console.WriteLine("\n\nData needs to be generated first");
+                    }
+                }
+
+                //display menu when m is pressed
+                if(selection.Key==ConsoleKey.M)
+                {
+                    //Displey menu
+                    Console.WriteLine("\n\nSelect a menu option..");
+                    Console.WriteLine("r. Read student data from a file.");
+                    Console.WriteLine("w. Write student data to a file.");
+                    Console.WriteLine("g. Generate random student data.");
+                    Console.WriteLine("a. Display the average of random student data.");
+                    Console.WriteLine("f. Display a lsit of failing students.");
+                    Console.WriteLine("m. Display menu.");
+                    Console.WriteLine("q. Quit the program.");
+                }
+
+            } while (selection.Key!=ConsoleKey.Q);
+            // exists loop wehn q is pressed
+        }
+
+        //********************************************************************************************
+        //Method:     static private void fails(string[] arrayString, double[] aGrades)
+        //Purpose:    display who failed
+        //Parameters: string[] arrayString- student names
+        //            double[]aGrades- student grades
+        //Returns:    void- returns no value
+        //*********************************************************************************************
+        static private void fails(string[] arrayString, double[] aGrades)
+        {
+            int count; //count through array
+
+            Console.WriteLine("\nHere is a list of failing students...");
+            Console.WriteLine("\n           Name   mark\n           ----   ----");
+
+            //
+            for (count = 0; count < aGrades.Length; count++)
+                if (aGrades[count] < 50)
+                {
+                    Console.CursorLeft = 15 - arrayString[count].Length;
+                    Console.WriteLine($"{arrayString[count]} : {aGrades[count]:0.0}");
+                }
+        }
+
+        //********************************************************************************************
+        //Method:     static private void Average(int[] arrayString, double[]aGrades)
+        //Purpose:    average all numbers in the array
+        //Parameters: string[] arrayString- student names
+        //            double[]aGrades- student grades
+        //Returns:    void- returns no value
+        //*********************************************************************************************
+        static private void Average(string[] arrayString, double[] aGrades)
+        {
+            int count;          // adds array numbers 
+            double average = 0; // avg of array
+            double close;       // closest grade to average
+
+            // loop to count the array
+            for (count = 0; count < aGrades.Length; count++)
+            {
+                // adds the array up to be averaged 
+                average += aGrades[count];
+            }
+            average /= aGrades.Length;
+            Console.WriteLine($"\nThe average of all marks is {average:0.0}%");
+
+            close = aGrades[0];
+
+            for (count = 1; count < aGrades.Length; count++)
+            {
+                //  find student closest to average
+                if (Math.Abs(aGrades[count] - average) < Math.Abs(close - average))
+                    close = aGrades[count];
+            }
+            // display student closest to averge
+            Console.WriteLine($"{arrayString[Array.IndexOf(aGrades, close)]} with {close:0.0} is closest to the average");
+
+        }
+
+        //********************************************************************************************
+        //Method:     static private void Show(string[] arrayString, double[] aGrades)
+        //Purpose:    display grades, student names
+        //Parameters: string[] arrayString- array for student names
+        //            double[] aGrades- array for students grades
+        //Returns:    no return method is void
+        //*********************************************************************************************
+        static private void Show(string[] arrayString, double[] aGrades)
+        {
+            int count; //count array in loop
+
+            // display message            
+            Console.WriteLine("\n          Name    mark\n           ----   ----");
+
+            // loop to count the array 
+            for (count = 0; count < aGrades.Length; count++)
+            {
+                // display array
+                Console.CursorLeft = 15 - arrayString[count].Length;
+                Console.WriteLine($"{arrayString[count]} : {aGrades[count]:0.0}");
+            }
+        }
+
+        //********************************************************************************************
+        //Method:     static  private void makeRecords(int sizeOfArray, out string[] nArray, out double[] aGrades)
+        //Purpose:    makes a recod of studnets names and their grades
+        //Parameters: out string[] arrayString- array for student names
+        //            out double[] aGrades- array for students grades
+        //            int sizeOfArray- for randomly generated size of arrays
+        //Returns:    no return method is void valuse leave with efrences
+        //*********************************************************************************************
+        static private void makeRecords(int sizeOfArray, out string[] nArray, out double[] aGrades)
+        {
+            Random random = new Random();      // random generator
+            nArray = new string[sizeOfArray];  // stores names
+            aGrades = new double[sizeOfArray]; // stores grades
+            int nCount;                        // count for names array
+            int gCount;                        // count for grades array
+            int nLength;                       // to generate rdm lenghts of names
+            string names;                      // stores names in array
+
+            // fill with random grades
+            for (gCount = 0; gCount < sizeOfArray; gCount++)
+            {
+                aGrades[gCount] = random.Next(0, 101);
+
+                // grades can't go over 100%
+                if (aGrades[gCount] < 100)
+                    aGrades[gCount] += random.NextDouble();
+            }
+
+            // array fill rdm names
+            for (gCount = 0; gCount < sizeOfArray; gCount++)
+            {
+                // initalize nmaes and length of size
+                names = "";
+                nLength = random.Next(5, 13);
+
+                // make rdm names
+                for (nCount = 0; nCount < nLength; nCount++)
+                {
+                    // first letter is upper case
+                    if (nCount == 0)
+                    {
+                        names = names + (char)random.Next(65, 91);
+                    }
+                    else
+                    // all other letters are lower case
+                    if (nCount > 0)
+                    {
+                        names = names + (char)random.Next(97, 122);
+                    }
+                }
+                // store names in array
+                nArray[gCount] = names;
+            }
+        }
+    }
+}
