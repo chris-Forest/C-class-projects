@@ -1,0 +1,183 @@
+//********************************************************
+//Program:     Methods Assignment 7
+//Description: draw a series of stars in the GDI window
+//Author:      Chris Forest
+//********************************************************
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Drawing;
+using GDIDrawer;
+
+namespace assignment_7
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            const int WIDTH = 800;                      // constant for GDI window width  
+            const int HIGHT = 600;                      // constant for GDI window hight        
+            CDrawer canvas = new CDrawer(WIDTH, HIGHT); // GDI window size
+            string runAgain;                            // string to runAgain program
+            int length;                                 // length of lines that make the star  
+            double degrees;                             // angle in which each line drawn rotates 
+            int spacing;                                // spacing between stars    
+            int yCounter;                               // x center point varaible   
+            int xCounter;                               // y center point varaible     
+
+            // sets comand prompt window size
+            Console.SetWindowSize(50, 10);
+
+            Console.Write("\t\tICA07 Chris Forest ");
+
+            //run program while "Y" or "y" key is not pressed
+            do
+            {
+                // input length of the line 
+                length = GetInt("\n\nEnter the line length in pixels: ", 1, canvas.m_ciWidth/2);  
+
+                //input angle at which the lines rotate at
+                degrees = degToRadians(GetDouble("degrees to radians is: ", 1, 360));
+
+                // input the space between stars 
+                spacing = GetInt("Enter the spacing for the stars in pixels: ", length, canvas.m_ciWidth);
+
+                // propely space stars out on the y axis 
+                for (yCounter=0;yCounter<=canvas.m_ciHeight;yCounter+=spacing)
+                {
+                    //propely space stars out on the x axis 
+                    for(xCounter=0;xCounter<=canvas.m_ciWidth;xCounter+=spacing)
+                    {
+                        // draws the stars
+                        drawStar(canvas, new Point(xCounter, yCounter), length, degrees);
+                    }
+                }
+
+                Console.WriteLine("\nRun program again? (y/n): ");
+                runAgain = Console.ReadLine();
+                canvas.Clear();
+            }
+            while (runAgain=="y"||runAgain=="Y");
+            // asks user if they want to run program again
+        }
+
+        //********************************************************
+        //Method:     static private void drawStar(CDrawer canvas,Point center,double length,double angle)     
+        //Purpose:    draws lines as stars in GDI window at a spcified center point and spaced evenly in random colors
+        //Parameters: CDrawer canvas-sets GDI window as a parameter       
+        //            Point center-sets center point for stars 
+        //            double length-user input for length of stars
+        //            double angle- angle to which each line is rotated specfied by user 
+        //Returns:    nothing as it is just drawing lines   
+        //********************************************************
+        static private void drawStar(CDrawer canvas,Point center,double length,double angle)
+        {
+            double counter; // add angle spcified by user
+
+            // add angle and rotate line until one full rotation 
+            for(counter=0;counter<=2*Math.PI;counter+=angle)
+            {
+                // draw lines in random colors
+                canvas.AddLine(center, length, dRotation: counter,RandColor.GetColor());
+                canvas.Render();
+            }
+        }
+
+        //********************************************************
+        //Method:    static private double degToRadians(double angle)
+        //Purpose:   transfer an angle in degrees to radians 
+        //Parameters:double angle-angle in degrees              
+        //Returns:   double angle in radians    
+        //********************************************************
+        static private double degToRadians(double angle)
+        {
+            return(angle * (Math.PI / 180));
+        }
+
+        //********************************************************
+        //Method:    static private int GetInt(string word, int min, int max)
+        //Purpose:   inputs an int value with range checking
+        //Parameters:string word- prompt to ask user for an int valsu   
+        //           int min- minimun range for int that can be accepted
+        //           int max- max range for int that can be accepted
+        //Returns:   int- value accepted by the method
+        //********************************************************
+        static private int GetInt(string word, int min, int max)
+        {
+            int angle = 0;      // int input ny user
+            bool valid = false; // error flag ,will check if conditions are met
+
+            // repeat until value is true and in range
+            while (!valid)
+            {
+                // wording set in main()
+                Console.Write(word);
+
+                // user input for value
+                valid = int.TryParse(Console.ReadLine(), out angle);
+
+                // if value is less than set minium, erroe message
+                if (angle < min)
+                {
+                    Console.WriteLine($"value is higher then minium{min}");
+                    Console.WriteLine("enter a value within range: ");
+                    valid = false;
+                }
+
+                //if value is over maxium, error message
+                if (angle > max)
+                {
+                    Console.WriteLine($"value is lower then max value{max}");
+                    Console.WriteLine("enter a value within range: ");
+                    valid = false;
+                }
+            }
+            return angle;
+        }
+
+        //********************************************************
+        //Method:    static private double GetDouble(string word, double min, double max)
+        //Purpose:   inputs an double value with range checking
+        //Parameters:string word- prompt to ask user for an double value  
+        //           double min- minimun range for double that can be accepted
+        //           double max- max range for double that can be accepted
+        //Returns:   double- value accepted by the method
+        //********************************************************
+        static private double GetDouble(string word, double min, double max)
+        {
+            double angle = 0;   // int input ny user
+            bool valid = false; // error flag ,will check if conditions are met
+
+            // repeat until value is true and in range
+            while (!valid)
+            {
+                // wording set in main()
+                Console.Write(word);
+
+                // user input for value
+                valid = double.TryParse(Console.ReadLine(), out angle);
+
+                //  if value is less than set minium, erroe message
+                if (angle < min)
+                {
+                    Console.WriteLine($"value is higher then minium value{min}");
+                    Console.WriteLine("enter a value within range: ");
+                    valid = false;
+                }
+
+                // if value is over maxium, error message
+                if (angle > max)
+                {
+                    Console.WriteLine($"value is lower then max value{max}");
+                    Console.WriteLine("enter a value within range: ");
+                    valid = false;
+                }
+            }
+            return angle;
+        }
+       
+    }
+}
