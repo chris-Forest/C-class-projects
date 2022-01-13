@@ -1,0 +1,223 @@
+//***********************************************************************************
+//Program:     Lab 4 hangman
+//Description: play hangman game
+//Author:      Chris Forest
+//***********************************************************************************
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Drawing;
+using GDIDrawer;
+using System.IO;
+
+namespace Lab4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            const int WIDTH = 800;                     // constant for width of GDI window 
+            const int LENGTH = 600;                    // constant for length of GDI window  
+            string runAgain;                           // string to ask the user to run program again
+            CDrawer draw = new CDrawer(WIDTH, LENGTH); // set GDI drawer window
+            string HiddenWord="";                      // hold hidden word picked from array
+            string LettersUsed;      // hold letters used
+            string secretWord;                         // grab a word from array
+            int WrongGuess;                          // counts # of wrong guesses
+            char guess = new char();                   // for user input for each letter
+            bool win = false;                          // boolen to see if hidden word was guess or not
+
+            // set console window size
+            Console.SetWindowSize(50, 30);
+
+           
+           
+
+            do
+            {
+                LettersUsed = "Letters used: ";
+                WrongGuess = 0;
+                secretWord="";
+                draw.Clear();
+                Console.Clear();
+                GetWord(out secretWord, out HiddenWord);
+                Draw(draw, HiddenWord, WrongGuess, LettersUsed);
+
+                //loop here to get guess repetadly
+                do
+                {
+                    // tracks user input for each letter guessed
+                    guess = GetGuess(ref LettersUsed);
+                    //updates hidden word to see if guessed letter is in the hidden word
+                    HiddenWord = UpdateGuess(secretWord, HiddenWord, guess, ref WrongGuess);
+                    draw.Clear();
+                    // draws all items in GDI window
+                    Draw(draw, HiddenWord, WrongGuess, LettersUsed);
+                    win = !HiddenWord.Contains('-');
+
+                } while (!win&&WrongGuess<6);
+                // loop until word is guessed or if user runs out of guesses 
+
+                // if word is guessed correctly.... game over message is in draw method
+                if(win)
+                    draw.AddText("You win!", 50, Color.Gray);
+
+                else
+                    draw.AddText($"Game over \nword was: {secretWord}", 50, Color.Gray);
+
+                // ask to run program again
+                Console.WriteLine("\nRun program again? (y/n): ");
+                runAgain = Console.ReadLine();
+                
+            } while (runAgain == "y" || runAgain == "Y");
+            // loops user when "y" is entered
+            
+        }
+
+        //**********************************************************************
+        //method:     static private char GetGuess(ref string lettersUsed)
+        //purpose:    gets user input with error checking
+        //parameters: ref string lettersUsed- tracks letterd guessed
+        //returns:    returned with refrences
+        //**********************************************************************
+        static private char GetGuess(ref string lettersUsed)
+        {
+            bool valid; // check if user input is correct or not. error flags
+            char input; // used for user inout for letters being guessed
+
+            do
+            {
+                valid = true;
+
+                Console.Write("Your guess: ");
+                char.TryParse(Console.ReadLine(), out input);
+                char.ToLower(input);
+
+                // if input is not in range  erroer
+                if((int)input<(int) 'a'|| (int)input > (int)'z')
+                {
+                    valid = false;
+                    Console.WriteLine("input must only be one letter");
+                }
+
+                // if a letter has been guessed let user know
+                if (lettersUsed.IndexOf(input, 14) > 0)
+                {
+                    valid = false;
+                    Console.WriteLine("letter has been guessed, guess again: ");
+                }
+                
+            } while (valid == false);
+            // loop while a guess is valid
+            
+            // add letters used to display from user input
+            lettersUsed += input;
+
+            return input;
+        }
+        //**********************************************************************
+        //method:     static private string UpdateGuess(string secretWord,string hiddenWord, char guess, ref int wrongGuess)
+        //purpose:    update user guess to see if its in chosen hidden word
+        //parameters: string secretWord- pull random word to used
+        //            string hiddenWord- have hidden word updated if guess is right
+        //            char guess- check user guess if its right or wrong
+        //            ref int wrongGuess- add part to hangman if guess is wrong
+        //returns:    return hiddenWord- updates hidden word if correct letter is guessed
+        //**********************************************************************
+        static private string UpdateGuess(string secretWord,string hiddenWord, char guess, ref int wrongGuess)
+        {
+            int count;               // count hidden word and check if guesed word is right
+            bool rightGuess = false; // boolen for if guess is good or not
+
+            // to see if guess is right or not
+            for(count = 0; count<secretWord.Length; count++)
+                if(secretWord.IndexOf(guess,count,1)>=0)
+                {
+                    // if guess is right remove dash and add guessed letter
+                    rightGuess = true;
+                    hiddenWord = hiddenWord.Remove(secretWord.IndexOf(guess, count, 1), 1);
+                    hiddenWord = hiddenWord.Insert(secretWord.IndexOf(guess, count, 1), $"{guess}");
+                }
+            // if guess is wrong add to hangman drawing
+            if (rightGuess == false)
+                wrongGuess++;
+
+            return hiddenWord;
+        }
+
+        //**********************************************************************
+        //method:     static private void GetWord(out string secretWord, out string hiddenWord)
+        //purpose:    get word for Hangman.txt file
+        //parameters: out string secretWord- out pulled word from txt file
+        //            out string hiddenWord- have hidden that is the secert word hidden under dashes
+        //returns:    returned with refrences
+        //**********************************************************************
+        static private void GetWord(out string secretWord, out string hiddenWord)
+        {
+            int count;                                           // count through array
+            hiddenWord = "";                                     // hides word chosen   
+            Random rando = new Random();                         // create random generator
+            StreamReader read = new StreamReader("Hangman.txt"); // read text file
+            string[] wArray = new string[5459];                  // put text file in array
+
+            // reads txt file to end of file
+            for (count = 0; read.EndOfStream == false; count++)
+                wArray[count] = read.ReadLine();
+
+            // randomize word chosen based on what line its on
+            secretWord = wArray[rando.Next(0, wArray.Length)];
+
+            // set dashes equal to numberr of letters in chosen word
+            for (count = 0; count < secretWord.Length; count++)
+                hiddenWord += "-";
+            
+        }
+
+        //**********************************************************************
+        //method:     static private void Draw(CDrawer draw, string hiddenWord, int wrongGuess, string usedLetters)
+        //purpose:    draw man and where he will hang as well as letters used and the hidden chosen word
+        //parameters: CDrawer draw- lets you draw in method
+        //            string hiddenWord- displays hidden word to be guessed with "-"
+        //            int wrongGuess- when guess is wrong add to drawing
+        //            string usedLetters- displays letters guessed
+        //returns:    no return
+        //**********************************************************************
+        static private void Draw(CDrawer draw, string hiddenWord, int wrongGuess, string usedLetters)
+        {
+            const int LEFT_POLE = 300; // constant for and x start point
+            
+            // draws text for guessed letters
+            draw.AddText(usedLetters, 20, 0, 0, 500, 80, Color.Green);
+
+            // selected word hidden with dashes
+            draw.AddText(hiddenWord, 40, 225, 460, 300, 80, Color.Orange);
+
+            // if guess is wrong add a body part
+            if (wrongGuess >= 1)
+                draw.AddCenteredEllipse(375, 225, 20, 20, Color.Cyan); //head
+            if (wrongGuess >= 2)
+                draw.AddLine(375, 230, 375, 300, Color.Cyan, 5); //body
+            if (wrongGuess >= 3)
+                draw.AddLine(375, 240, 350, 275, Color.Cyan, 5); //left arm
+            if (wrongGuess >= 4)
+                draw.AddLine(375, 240, 400, 275, Color.Cyan, 5); //right arm
+            if (wrongGuess >= 5)
+                draw.AddLine(375, 300, 350, 350, Color.Cyan, 5); // left leg
+            if (wrongGuess >= 6)
+                draw.AddLine(375, 300, 400, 350, Color.Cyan, 5); //right leg       
+
+            // draws the frame for hangman
+            draw.AddLine(LEFT_POLE, 150, LEFT_POLE, 450, Color.Cyan,5);
+            draw.AddLine(LEFT_POLE, 175, 400, 175, Color.Cyan, 5);
+            draw.AddLine(LEFT_POLE, 200, 325, 175, Color.Cyan, 5);
+            draw.AddLine(LEFT_POLE, 400, 450, 400, Color.Cyan, 5);
+            draw.AddLine(430, 400, 430, 450, Color.Cyan, 5);
+            draw.AddLine(LEFT_POLE, 410, 430, 440, Color.Cyan, 5);
+            draw.AddLine(LEFT_POLE, 440, 430, 410, Color.Cyan, 5);
+            draw.AddLine(375, 178, 375, 215, Color.Red, 2);            
+        }
+    }
+}
