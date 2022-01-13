@@ -1,1 +1,52 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
+namespace assignment_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double costPercan;  // cost per can is 0.85
+            int cansTobuy;        // number of cans needed
+            double gst;   // gst variable which is 0.05
+            double tCanscost; //   total of all cans price
+            double totalPrice;   // total of all cans
+
+            Console.CursorLeft = (Console.WindowWidth - 18) / 2;
+            Console.WriteLine("                  ICA01- Chris Forest \n"); // the title
+            Console.CursorLeft = 0;
+
+            Console.Write("Enter the number of cans of pop of purchase: ");
+            //    displays number of cans to buy prompt
+            int.TryParse(Console.ReadLine(), out cansTobuy);
+
+            Console.Write("Enter the cost per can: ");
+            //  displays cost per can prompt
+            double.TryParse(Console.ReadLine(), out costPercan);
+
+            // all my math for gst and cans
+            tCanscost = cansTobuy * costPercan;
+            gst = tCanscost * 0.05;
+
+            Console.WriteLine();
+            Console.WriteLine();
+            //string.Format("{0:0.00}", gst);  suposed to keep to 2 decmal places but dosn't
+           // gst.ToString("0.00");    diff form of above code
+            Console.Write("The GST is $" + string.Format("{0:0.00}", gst));
+            Console.WriteLine();
+            Console.WriteLine();
+
+            totalPrice = gst + tCanscost;
+            Console.Write("The total cost is $" + Math.Round(totalPrice, 2));
+
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.Write("Press <enter> to exit: ");
+            Console.Read();
+        }
+    }
+}
