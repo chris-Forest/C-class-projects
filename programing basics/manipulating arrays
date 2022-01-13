@@ -1,0 +1,141 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Drawing;
+using GDIDrawer;
+using Utilities;
+
+namespace A11
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            const int WIDTH = 800;                    // const for GDI window width
+            const int HIGHT = 600;                    // const for GDI window hight
+            CDrawer draw = new CDrawer(WIDTH, HIGHT); // GDI window size
+            Random RanGen = new Random();             // make a random niumber generator  
+            int[] iArray1;                            // inital first array 
+            int[] iArray2;                            // intialize array2
+            int count;                                // count arrays  
+            int search;                               // search for value in array
+            int findIndex;                            // find a number in index
+
+            // sets comand prompt window size
+            Console.SetWindowSize(50, 10);
+            // make  iArray1
+            iArray1 = new int[20];
+
+            //count iArray1 and display it
+            for (count=0;count<iArray1.Length;count++)
+            {
+                iArray1[count] = RanGen.Next(1, 29);
+            }
+            Draw(iArray1, "iArray1 original contents", 20, draw);
+            Thread.Sleep(2000);
+
+            draw.Clear();
+            // cloning iArray2 from iArray1 
+            iArray2 = (int[])iArray1.Clone();
+            iArray2[1] =0;
+
+            // count iArray2 and display it
+            for (count = 0; count < iArray2.Length; count++)
+            {
+                iArray2[count] = RanGen.Next(1, 29);
+            }
+            Draw(iArray2, "iArray2", 20, draw);
+            Thread.Sleep(2000);
+
+            draw.Clear();
+            // compare iArray1 to iArray2
+            Draw(iArray1, "iArray1", 20, draw);
+            Thread.Sleep(2000);
+            Draw(iArray2, "iArray1", 20, draw);
+            Thread.Sleep(2000);
+
+            draw.Clear();
+            // iArray2 with 40 intitgers
+            iArray2 = new int[40];
+
+            // count iArray2 with bigger index and display it
+            for (count = 0; count < iArray2.Length; count++)
+            {
+                iArray2[count] = RanGen.Next(1, 29);
+            }
+            Draw(iArray2, "iArray2", 40, draw);
+            Thread.Sleep(2000);
+
+            draw.Clear();
+            // iArray copied and starts at iArray index 10
+            iArray2 = new int[40];
+            Array.Copy(iArray1, 0, iArray2, 10, 20);
+            Draw(iArray2, "iArray2", 30, draw);
+            Thread.Sleep(2000);
+
+            draw.Clear();
+            //iArray2 cleared from index 10-20
+            Array.Clear(iArray2, 10, 10);
+            Draw(iArray2, "iArray2 cleared",30, draw);
+            Thread.Sleep(2000);
+
+            draw.Clear();
+            //sort iArray1
+            Array.Sort(iArray1);
+            Draw(iArray1, "Sorted iArray1", iArray1.Length, draw);
+            Thread.Sleep(2000);
+
+            draw.Clear();
+            // user input to search for a value in iArray1
+            CUtilities.GetValue(out search, "Enter a value to look for: ", 0, 29);
+            Draw(iArray1, "iArray1 search", 20, draw);
+            findIndex = Array.BinarySearch(iArray1, search);
+
+            // if valuse is not found
+            if (findIndex < 0)
+                draw.AddText("\n\nValue could not be found", 30, Color.White);
+
+            //if value is found mark it in red
+            if (findIndex >= 0)
+                draw.AddLine(findIndex, 0, findIndex, iArray1[findIndex], Color.Red, 10);
+            Thread.Sleep(2000);
+
+            draw.Clear();
+            //reverse iArray1
+            Array.Sort(iArray1);
+            Array.Reverse(iArray1);
+            Draw(iArray1, "iArray1 reversed", iArray1.Length,draw);
+            Thread.Sleep(2000);
+            Console.ReadKey();
+        }
+
+        //********************************************************************************************
+        //Method:     static private void Draw(int[]iArray,string words, int size,CDrawer drawer)
+        //Purpose:    draws the bar graph
+        //Parameters: int[]iArray- the array being used
+        //            string words- displays message in argumant when called 
+        //            int size- size of text to be displayed in GDI drawer   
+        //            CDrawer drawer-keep all drawing in one GDI window 
+        //Returns:    no return, passed/called to main 
+        //*********************************************************************************************
+        static private void Draw(int[]iArray,string words, int size,CDrawer drawer)
+        {
+
+            int count;        // count the array
+            drawer.Scale = 20;// sets scale for GDI window
+
+            //for size of array
+            for(count=0;count<size;count++)
+            {
+                //add line(poston of array,0,postion of array,value of array)
+                drawer.AddLine(count,0,count,iArray[count],Color.Yellow,10);
+            }
+            // color text in called draw argument
+            drawer.AddText(words, 30, Color.White);
+
+        }
+      
+    }
+}
