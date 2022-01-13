@@ -1,0 +1,63 @@
+//***********************************************************************************
+//Program:     Assignment 9 method overloading
+//Description: testing method overloads
+//Author:      Chris Forest
+//***********************************************************************************
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Utilities;// overload class library
+
+namespace A9
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int iTest;    // int varaible for overloading
+            double dTest; // double varaible for overloading
+
+            // input an integer component with 2 arguments
+            CUtilities.GetValue(out iTest, "Enter an integer: ");
+
+            // input if intger is valid
+            Console.WriteLine("iTest = {0}\n", iTest);
+
+            // input for positive intiger with 3 arguments
+            CUtilities.GetValue(out iTest, "Enter a positive interger: ", 0);
+
+            // input if positve int is valid
+            Console.WriteLine("iTest = {0}\n", iTest);
+
+            // input for int  component between 0 and 100 with 4 arguments
+            CUtilities.GetValue(out iTest, "Enter an interger from 0 to 100: ", 0, 100);
+
+            // if int input is valid
+            Console.WriteLine("iTest = {0}\n", iTest);
+
+            // input for a double comenent with 2 arguments 
+            CUtilities.GetValue(out dTest, "Enter a double: ");
+
+            // if double input is valid
+            Console.WriteLine("dTest = {0}\n", dTest);
+
+            // input for a positive double with 3 arguments
+            CUtilities.GetValue(out dTest, "Eneter a positive double: ", 0.0);
+
+            // if positive input is valid
+            Console.WriteLine("dTest = {0}\n", dTest);
+
+            // input for a double between 0.0 and 100.0 with 4 arguments
+            CUtilities.GetValue(out dTest, "Eneter a double from 0.0 to 100.0: ", 0, 100);
+
+            // if above input is valid
+            Console.WriteLine("dTest = {0}\n", dTest);
+
+            // to exit program
+            Console.ReadKey();
+        }
+    }
+}
