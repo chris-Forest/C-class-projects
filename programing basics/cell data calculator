@@ -1,0 +1,111 @@
+//****************************************************************************************
+//Chris Forest Lab 1
+//****************************************************************************************
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace lab_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            long tBytes = 1234567890;         //Total bytes used
+            double sTotal;                    // the sub total   
+            double fee911;                    // the 911 acccess fee  
+            double feeSystem;                 // system access fee        
+            double tBeforeGst;                // total Before gst        
+            double gst;                       // calculated gst      
+            double tData;                     // Total for all data
+            string nAmount="Amount";          // amount title varaible        
+            string nUnit="Unit";              // unit title varaible         
+            string nCostPerUnit="Cost/Unit";  // cost/unit title varaible              
+            string nTotal="Total";            // total title varaible       
+            long nGbyte;                      // Amount for  GB        
+            string nameGb = "GB";             // Varaible for GB 
+            double costGb=12.00;              // price per GB used  
+            long nMbyte;                      // Amount for MB   
+            string nameMb = "MB";             // MB varaible 
+            double costMb=0.25;               // cost per MB  
+            double tCostMB;                   // total cost for MB used
+            long nKbyte;                      //  Amount for KB         
+            string nameKb ="KB";              // KB varaible             
+            double costKb = 0.02;             // cost per KB             
+            double tCostKb;                   // total cost fo KB used     
+            long bytes;
+            string nameBytes="Bytes";
+            double costBytes=0.01;
+            double tCostBytes;
+
+
+            // will display and center my title
+            Console.SetCursorPosition((Console.WindowWidth - "Lab 1 - Cell Phone Data Cost Calculator".Length) / 2, 0);
+            Console.WriteLine("Lab 1 - Cell Phone Data Cost Calculator\n");
+
+            Console.Write("Enter the number of bytes used: ");
+            long.TryParse(Console.ReadLine(), out tBytes);
+
+            //Will change text color to yellow
+            Console.ForegroundColor = ConsoleColor.Yellow;
+
+            // Header titles
+            Console.WriteLine("\n{0,-10}{1,-10}{2,-10}{3,-10}\n", nAmount, nUnit, nCostPerUnit, nTotal);
+
+            //Resets color
+            Console.ResetColor();
+
+            // math to determine number of GB and remainder
+            nGbyte = tBytes / 1073741824;
+            tBytes = tBytes % 1073741824;
+           
+            // displays row 1
+            Console.Write("{0,-10}{1,-10}{2,-10:C}{3,-10:C}\n", nGbyte, nameGb, costGb, costGb);
+
+            // math for MB amount and price per MB
+            nMbyte = tBytes / 1048576;
+            tBytes = tBytes % 1048576;
+            tCostMB = costMb * nMbyte;
+
+            // Displays row 2
+            Console.Write("{0,-10}{1,-10}{2,-10:C}{3,-10:C}\n", nMbyte, nameMb, costMb, tCostMB);
+
+            // math for KB amount and price per KB
+            nKbyte = tBytes / 1024;
+            tBytes = tBytes % 1024;
+            tCostKb = costKb * nKbyte;
+
+            // display row 3
+            Console.Write("{0,-10}{1,-10}{2,-10:C}{3,-10:C}\n", nKbyte, nameKb, costKb, tCostKb);
+
+            //
+            bytes = tBytes / 1;
+            tCostBytes = costBytes * bytes;
+            bytes = tBytes;
+
+            // Displays row 4
+            Console.Write("{0,-10}{1,-10}{2,-10:C}{3,-10:C}\n", bytes,nameBytes,costBytes,tCostBytes);
+
+            // makes a seperator with the dash symbol
+            Console.CursorLeft= 30;
+            Console.Write("---------\n");
+            Console.CursorLeft = 0;
+
+            //Console.WriteLine();
+
+            // the sub total
+            sTotal = costGb + tCostMB + tCostKb + tCostBytes;
+
+            Console.Write("SubTotal");
+            //Console.Write("{0,-10}{1,-10}{2,-10}{3,-10}\n", , , , sTotal);
+            Console.CursorLeft = 30;
+            Console.Write($"{sTotal:C}");
+            Console.CursorLeft = 0;
+
+
+            Console.ReadKey();
+        }
+    }
+}
