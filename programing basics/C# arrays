@@ -1,10 +1,7 @@
 ﻿//***********************************************************************************
 //Program:     assignment 10 method arrays
 //Description: Calculates body mass index of user
-//Date:        Nov. 21/2019
 //Author:      Chris Forest
-//Course:      CMPE1300
-//Class:       CNTA03
 //***********************************************************************************
 
 using System;
@@ -12,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Utilities;
+using Utilities; //library built form prevoius assgnment
 
 namespace A10
 {
