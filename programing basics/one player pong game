@@ -1,0 +1,177 @@
+//**********************************************************************************************************************
+//Chris Forest lab 2
+//**********************************************************************************************************************
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Drawing;
+using GDIDrawer;
+
+namespace lab_2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Random rdm = new Random();                      // random gnerator for ball positon  
+            const int WIDTH = 160;                          // window width constant   
+            const int HIGHT = 120;                          // window hight constant   
+            CDrawer canvas = new CDrawer(WIDTH*5, HIGHT*5); //sets Gdi drawer window range 
+            canvas.ContinuousUpdate = false;                // allows objects to be drawn and animated cleanly 
+            const int SCALE = 5;                            // scale constant  
+            canvas.Scale = SCALE;                           // sets pixels range for x and y
+            const int SPEED = 20;                           // speed constant          
+            int speed=SPEED;                                // speed varaible
+            int points=0;                                   // will keep track of my points
+            int yInput;                                     // paddle movment on y axis
+            int xSquare;                                    // square ball start position x value
+            int ySquare;                                    // square ball start position y value
+            int velocityX=1;                                // velocity of square on x axis
+            int velocityY=1;                                // velocity of square on x axis
+            Point mouse;                                    // user mouse tracking varaible              
+            Point lClick;                                   // left click varaible for playing game   
+            int border;                                     // varaible for border  
+            xSquare = rdm.Next(2, 78);                     // randomly generate ball x position    
+            ySquare = rdm.Next(2, 58);                     // randomly generate ball y position 
+            bool playAgain = false;                         // boolean for button to play again        
+            Point endClick;                                 // for click at end of game
+            bool eClick = true;                             // boolean to register mouse click     
+            bool game= true;                                // boolean for the game to end or play again     
+
+            while (game)
+            {
+                canvas.Clear();
+
+                // left click to start game 
+                canvas.AddText("Left click to start", 30, Color.White);
+                canvas.Render();
+                while (!canvas.GetLastMouseLeftClickScaled(out lClick)) ;
+
+
+                //top border
+                for (border = 0; border < WIDTH; ++border)
+                {
+                    canvas.SetBBScaledPixel(border, 0, Color.Orange);
+
+                }
+                //bottom border
+                for (border = 0; border < WIDTH; ++border)
+                {
+                    canvas.SetBBScaledPixel(border, 119, Color.Orange);
+                }
+                // rigt wall border
+                for (border = 0; border < HIGHT; ++border)
+                {
+                    canvas.SetBBScaledPixel(159, border, Color.Orange);
+                }
+
+
+                while (!(xSquare<0))
+                {
+
+                    //clears frame
+                    canvas.Clear();
+
+                    //player padle reading
+                    canvas.GetLastMousePositionScaled(out mouse);
+                    yInput = mouse.Y - 4;
+
+                    // keep padle in window on y axis
+                    yInput = (yInput < 0) ? 2 : yInput;
+                    yInput = (yInput > 106) ? 108 : yInput;
+
+                    // create players paddle
+                    canvas.AddLine(0, yInput, 0, yInput + 10, Color.Red, 10);
+
+                    // square ball moves around
+                    xSquare = xSquare + velocityX;
+                    ySquare = ySquare + velocityY;
+
+                    //right wall collisions
+                    if ((xSquare < 0) || (xSquare > 156))
+                        velocityX = -velocityX;
+
+                    //top and bottom wall collisions
+                    if ((ySquare < 2) || (ySquare > 116))
+                        velocityY = -velocityY;
+
+                    // paddle/square ball collisions
+                    if ((ySquare < yInput + 11 && ySquare > yInput - 4) && (xSquare < 2))
+                    {
+                        points++;                   // will increse your points as it hits the paddle  
+                        velocityX = -velocityX;     // reverse the square ball direction
+                        speed--;                    //speed of game goes up as the pause length goes down
+
+                    }
+
+
+                    //the square ball is made
+                    canvas.AddRectangle(xSquare, ySquare, 2, 2, Color.Green);
+
+                    // points display
+                    canvas.AddText($"{points}", 30, Color.White);
+
+                    // renders all shapes
+                    canvas.Render();
+
+                    // sets speed of ball
+                    Thread.Sleep(speed);
+                   
+                }
+                // prevents a glitch where buttons dont show up after a second play through
+                playAgain = false;
+
+
+                Thread.Sleep(1500);
+
+                canvas.Clear();
+
+                // adds play again text drawn in an empty rectangle
+                canvas.AddRectangle(50, 90, 40, 20, Color.Empty, 2, Color.GreenYellow);
+                canvas.AddText("Play Again", 20, 55, 95, 30, 10, Color.GreenYellow);
+
+                //adds exit text drawn in an empty rectangle
+                canvas.AddRectangle(110, 90, 40, 20, Color.Empty, 2, Color.Crimson);
+                canvas.AddText("exit", 20, 115, 95, 30, 10, Color.Crimson);
+
+                // showa yor score when game ends
+                canvas.AddText($"Final score is: {points}", 20, Color.White);
+
+                
+                canvas.Render();
+                
+                // end game statments
+                while ((!playAgain))
+                {
+                    // checks for mouse click
+                    if (canvas.GetLastMouseLeftClickScaled(out endClick))
+                    {
+                        // if play again is clicked program will run again
+                        if ((endClick.X > 50) && (endClick.X <= 90) && (endClick.Y >= 90) && (endClick.Y <= 120) && (eClick))
+                        {
+                            xSquare = rdm.Next(2, 78);
+                            ySquare = rdm.Next(2, 58);
+                            velocityX = 1;
+                            velocityY = 1;
+                            points = 0;
+                            playAgain = true;
+                        }
+
+                        //if this is clicked game ends
+                        if ((endClick.X >= 110) && (endClick.X <= 150) && (endClick.Y >= 90) && (endClick.Y <= 120))
+                        {
+                            game = false;
+                            break;
+                        }
+
+                    }
+                    Thread.Sleep(20);
+                }
+            }
+
+        }
+    }
+}
