@@ -1,0 +1,4 @@
+﻿  Main.c
+C:\Oveeyen\Nait_Courses\CMPE1700\Winter2020\temporaryWorks\SortingProject\Main.c(29,12): warning C4013:  'bubbleSort' undefined; assuming extern returning int
+C:\Oveeyen\Nait_Courses\CMPE1700\Winter2020\temporaryWorks\SortingProject\Main.c(38,15): warning C4013:  'selectionSort' undefined; assuming extern returning int
+  SortingProject.vcxproj -> C:\Oveeyen\Nait_Courses\CMPE1700\Winter2020\temporaryWorks\SortingProject\Debug\SortingProject.exe

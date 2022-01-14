@@ -1,0 +1,7 @@
+﻿  Main.c
+E:\school\comp engn yr1\project and assignments C# coding\CMPPE1700\assignments\ica-13-chris-Forest\nica13\Main.c(36,12): warning C4013: 'bubbleSort' undefined; assuming extern returning int
+E:\school\comp engn yr1\project and assignments C# coding\CMPPE1700\assignments\ica-13-chris-Forest\nica13\Main.c(46,15): warning C4013: 'selectionSort' undefined; assuming extern returning int
+  Sorting.c
+E:\school\comp engn yr1\project and assignments C# coding\CMPPE1700\assignments\ica-13-chris-Forest\nica13\Sorting.c(45,8): warning C4013: 'printf' undefined; assuming extern returning int
+  Generating Code...
+  SortingProject.vcxproj -> E:\school\comp engn yr1\project and assignments C# coding\CMPPE1700\assignments\ica-13-chris-Forest\nica13\x64\Debug\SortingProject.exe
