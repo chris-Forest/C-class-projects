@@ -1,8 +1,6 @@
 ﻿//*********************************************************************
 //Program:    lab4- typeing tutor
 //Author:     Chris Forest
-//Class:      CNT2f
-//Instructor: Kevin More
 //*********************************************************************
 
 using System;
