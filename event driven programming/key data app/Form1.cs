@@ -1,8 +1,6 @@
 ﻿//*********************************************************************
 //Program:    ica4- lists with binary numbers
 //Author:     Chris Forest
-//Class:      CNT2f
-//Instructor: Kevin More
 //*********************************************************************
 
 using System;
