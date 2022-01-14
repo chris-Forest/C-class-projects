@@ -1,8 +1,6 @@
 ﻿//*********************************************************************
 //Program:    ica8- multithredaing with gdi
 //Author:     Chris Forest
-//Class:      CNT2f
-//Instructor: Kevin More
 //*********************************************************************
 
 using System;
