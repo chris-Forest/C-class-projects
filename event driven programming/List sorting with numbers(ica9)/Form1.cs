@@ -1,8 +1,6 @@
 ﻿//*********************************************************************
-//Program:    NICA09 – invoking
+//Program:    ICA09 – invoking
 //Author:     Chris Forest
-//Class:      CNT2f
-//Instructor: Kevin More
 //*********************************************************************
 
 using System;
