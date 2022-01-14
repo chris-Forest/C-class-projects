@@ -1,8 +1,6 @@
 ﻿//*********************************************************************
 //Program:    ica5 - drawing with keyboard events
 //Author:     Chris Forest
-//Class:      CNT2f
-//Instructor: Kevin More
 //*********************************************************************
 
 using System;
