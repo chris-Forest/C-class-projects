@@ -1,0 +1,9 @@
+﻿  NC.c
+  main.c
+E:\school\comp engn yr1\project and assignments C# coding\CMPPE1700\assignments\ica-7-chris-Forest\ica7-Q2\main.c(20,10): warning C4101: 'pl': unreferenced local variable
+  Generating Code...
+E:\school\comp engn yr1\project and assignments C# coding\CMPPE1700\assignments\ica-7-chris-Forest\ica7-Q2\NC.c(30): warning C4715: 'findEyeColorf': not all control paths return a value
+E:\school\comp engn yr1\project and assignments C# coding\CMPPE1700\assignments\ica-7-chris-Forest\ica7-Q2\NC.c(45): warning C4715: 'reverse': not all control paths return a value
+  LINK : the 32-bit linker (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\bin\HostX86\x64\link.exe) failed to do memory mapped file I/O on `x64\Debug\main.obj' and is going to restart linking with a 64-bit linker for better throughput
+  LINK : restarting link with 64-bit linker `C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\bin\HostX64\x64\link.exe'
+  ica7-Q2.vcxproj -> E:\school\comp engn yr1\project and assignments C# coding\CMPPE1700\assignments\ica-7-chris-Forest\ica7-Q2\x64\Debug\ica7-Q2.exe
