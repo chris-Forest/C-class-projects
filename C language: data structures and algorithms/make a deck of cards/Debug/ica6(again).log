@@ -1,0 +1,6 @@
+﻿  cards.c
+E:\school\CNT  year 1\project and assignments C# coding\CMPPE1700\assignments\ica-6-chris-Forest\ica6(again)\cards.c(112,13): warning C4013: 'time' undefined; assuming extern returning int
+  main.c
+  Generating Code...
+E:\school\CNT  year 1\project and assignments C# coding\CMPPE1700\assignments\ica-6-chris-Forest\ica6(again)\cards.c(83): warning C4172: returning address of local variable or temporary: sCard
+  ica6(again).vcxproj -> E:\school\CNT  year 1\project and assignments C# coding\CMPPE1700\assignments\ica-6-chris-Forest\ica6(again)\Debug\ica6(again).exe
