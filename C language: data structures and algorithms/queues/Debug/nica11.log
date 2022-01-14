@@ -1,0 +1,28 @@
+﻿  main.c
+E:\school\comp engn yr1\project and assignments C# coding\CMPPE1700\assignments\ica-11-chris-Forest\nica11\main.c(30,25): warning C4474: 'scanf_s' : too many arguments passed for format string
+E:\school\comp engn yr1\project and assignments C# coding\CMPPE1700\assignments\ica-11-chris-Forest\nica11\main.c(30,25): message : placeholders and their parameters expect 1 variadic arguments, but 2 were provided
+E:\school\comp engn yr1\project and assignments C# coding\CMPPE1700\assignments\ica-11-chris-Forest\nica11\main.c(46,26): warning C4474: 'scanf_s' : too many arguments passed for format string
+E:\school\comp engn yr1\project and assignments C# coding\CMPPE1700\assignments\ica-11-chris-Forest\nica11\main.c(46,26): message : placeholders and their parameters expect 1 variadic arguments, but 2 were provided
+E:\school\comp engn yr1\project and assignments C# coding\CMPPE1700\assignments\ica-11-chris-Forest\nica11\main.c(47,22): warning C4047: 'function': 'int' differs in levels of indirection from 'int *'
+E:\school\comp engn yr1\project and assignments C# coding\CMPPE1700\assignments\ica-11-chris-Forest\nica11\main.c(47,16): warning C4024: 'del': different types for formal and actual parameter 2
+E:\school\comp engn yr1\project and assignments C# coding\CMPPE1700\assignments\ica-11-chris-Forest\nica11\main.c(52,26): warning C4474: 'scanf_s' : too many arguments passed for format string
+E:\school\comp engn yr1\project and assignments C# coding\CMPPE1700\assignments\ica-11-chris-Forest\nica11\main.c(52,26): message : placeholders and their parameters expect 1 variadic arguments, but 2 were provided
+E:\school\comp engn yr1\project and assignments C# coding\CMPPE1700\assignments\ica-11-chris-Forest\nica11\main.c(54,25): warning C4474: 'scanf_s' : too many arguments passed for format string
+E:\school\comp engn yr1\project and assignments C# coding\CMPPE1700\assignments\ica-11-chris-Forest\nica11\main.c(54,25): message : placeholders and their parameters expect 1 variadic arguments, but 2 were provided
+E:\school\comp engn yr1\project and assignments C# coding\CMPPE1700\assignments\ica-11-chris-Forest\nica11\main.c(60,39): warning C4013: 'strdup' undefined; assuming extern returning int
+E:\school\comp engn yr1\project and assignments C# coding\CMPPE1700\assignments\ica-11-chris-Forest\nica11\main.c(60,45): warning C4047: 'function': 'char *' differs in levels of indirection from 'int'
+E:\school\comp engn yr1\project and assignments C# coding\CMPPE1700\assignments\ica-11-chris-Forest\nica11\main.c(60,39): warning C4024: 'enQueue': different types for formal and actual parameter 4
+E:\school\comp engn yr1\project and assignments C# coding\CMPPE1700\assignments\ica-11-chris-Forest\nica11\main.c(60,59): warning C4047: 'function': 'char *' differs in levels of indirection from 'int'
+E:\school\comp engn yr1\project and assignments C# coding\CMPPE1700\assignments\ica-11-chris-Forest\nica11\main.c(60,53): warning C4024: 'enQueue': different types for formal and actual parameter 5
+  queue.c
+E:\school\comp engn yr1\project and assignments C# coding\CMPPE1700\assignments\ica-11-chris-Forest\nica11\queue.c(34,23): warning C4133: '=': incompatible types - from 'CarNode *' to 'CarNode *'
+E:\school\comp engn yr1\project and assignments C# coding\CMPPE1700\assignments\ica-11-chris-Forest\nica11\queue.c(52,24): warning C4133: '=': incompatible types - from 'CarNode *' to 'CarNode *'
+E:\school\comp engn yr1\project and assignments C# coding\CMPPE1700\assignments\ica-11-chris-Forest\nica11\queue.c(69,26): warning C4133: '=': incompatible types - from 'CarNode *' to 'CarNode *'
+E:\school\comp engn yr1\project and assignments C# coding\CMPPE1700\assignments\ica-11-chris-Forest\nica11\queue.c(72,22): warning C4133: '=': incompatible types - from 'CarNode *' to 'CarNode *'
+E:\school\comp engn yr1\project and assignments C# coding\CMPPE1700\assignments\ica-11-chris-Forest\nica11\queue.c(83,26): warning C4133: '=': incompatible types - from 'CarNode *' to 'CarNode *'
+E:\school\comp engn yr1\project and assignments C# coding\CMPPE1700\assignments\ica-11-chris-Forest\nica11\queue.c(95,20): warning C4133: '=': incompatible types - from 'CarNode *' to 'CarNode *'
+E:\school\comp engn yr1\project and assignments C# coding\CMPPE1700\assignments\ica-11-chris-Forest\nica11\queue.c(108,20): warning C4133: '=': incompatible types - from 'CarNode *' to 'CarNode *'
+E:\school\comp engn yr1\project and assignments C# coding\CMPPE1700\assignments\ica-11-chris-Forest\nica11\queue.c(115,1): warning C4133: 'initializing': incompatible types - from 'CarNode *' to 'CarNode *'
+E:\school\comp engn yr1\project and assignments C# coding\CMPPE1700\assignments\ica-11-chris-Forest\nica11\queue.c(145,22): warning C4133: '=': incompatible types - from 'CarNode *' to 'CarNode *'
+  Generating Code...
+  nica11.vcxproj -> E:\school\comp engn yr1\project and assignments C# coding\CMPPE1700\assignments\ica-11-chris-Forest\nica11\Debug\nica11.exe
