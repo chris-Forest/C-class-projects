@@ -1,0 +1,4 @@
+﻿  main.c
+E:\school\comp engn yr1\project and assignments C# coding\CMPPE1700\assignments\ica-2-chris-Forest\ica2\main.c(7,12): warning C4013: 'strcmp' undefined; assuming extern returning int
+E:\school\comp engn yr1\project and assignments C# coding\CMPPE1700\assignments\ica-2-chris-Forest\ica2\main.c(24,24): warning C4013: 'strlen' undefined; assuming extern returning int
+  ica2.vcxproj -> E:\school\comp engn yr1\project and assignments C# coding\CMPPE1700\assignments\ica-2-chris-Forest\ica2\x64\Debug\ica2.exe
