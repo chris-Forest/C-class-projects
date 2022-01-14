@@ -1,8 +1,6 @@
 ﻿//*********************************************************************
 //Program:    ica3- draw a shape in gdi with dialogs
 //Author:     Chris Forest
-//Class:      CNT2f
-//Instructor: Kevin More
 //*********************************************************************
 
 using System;
