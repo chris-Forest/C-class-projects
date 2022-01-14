@@ -1,8 +1,6 @@
 ﻿//*********************************************************************
 //Program:    lab3- ballz dropped
 //Author:     Chris Forest
-//Class:      CNT2f
-//Instructor: Kevin More
 //*********************************************************************
 
 using System;
