@@ -1,0 +1,3 @@
+﻿  main.c
+E:\school\comp engn yr1\project and assignments C# coding\CMPPE1700\assignments\ica-8-chris-Forest\assign8\ass8\main.c(7,18): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
+  ass8.vcxproj -> E:\school\comp engn yr1\project and assignments C# coding\CMPPE1700\assignments\ica-8-chris-Forest\assign8\ass8\x64\Debug\ass8.exe
