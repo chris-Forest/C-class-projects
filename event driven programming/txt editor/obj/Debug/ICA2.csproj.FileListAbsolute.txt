@@ -1,0 +1,19 @@
+C:\Users\cforest2\Desktop\programing\ICA2\bin\Debug\ICA2.exe.config
+C:\Users\cforest2\Desktop\programing\ICA2\bin\Debug\ICA2.exe
+C:\Users\cforest2\Desktop\programing\ICA2\bin\Debug\ICA2.pdb
+C:\Users\cforest2\Desktop\programing\ICA2\obj\Debug\ICA2.csprojAssemblyReference.cache
+C:\Users\cforest2\Desktop\programing\ICA2\obj\Debug\ICA2.Form1.resources
+C:\Users\cforest2\Desktop\programing\ICA2\obj\Debug\ICA2.Properties.Resources.resources
+C:\Users\cforest2\Desktop\programing\ICA2\obj\Debug\ICA2.csproj.GenerateResource.cache
+C:\Users\cforest2\Desktop\programing\ICA2\obj\Debug\ICA2.exe
+C:\Users\cforest2\Desktop\programing\ICA2\obj\Debug\ICA2.pdb
+C:\Users\chris\OneDrive\Documents\school\programing 1600\ICA2\ICA2\bin\Debug\ICA2.exe.config
+C:\Users\chris\OneDrive\Documents\school\programing 1600\ICA2\ICA2\bin\Debug\ICA2.exe
+C:\Users\chris\OneDrive\Documents\school\programing 1600\ICA2\ICA2\bin\Debug\ICA2.pdb
+C:\Users\chris\OneDrive\Documents\school\programing 1600\ICA2\ICA2\obj\Debug\ICA2.csprojAssemblyReference.cache
+C:\Users\chris\OneDrive\Documents\school\programing 1600\ICA2\ICA2\obj\Debug\ICA2.Form1.resources
+C:\Users\chris\OneDrive\Documents\school\programing 1600\ICA2\ICA2\obj\Debug\ICA2.Properties.Resources.resources
+C:\Users\chris\OneDrive\Documents\school\programing 1600\ICA2\ICA2\obj\Debug\ICA2.csproj.GenerateResource.cache
+C:\Users\chris\OneDrive\Documents\school\programing 1600\ICA2\ICA2\obj\Debug\ICA2.csproj.CoreCompileInputs.cache
+C:\Users\chris\OneDrive\Documents\school\programing 1600\ICA2\ICA2\obj\Debug\ICA2.exe
+C:\Users\chris\OneDrive\Documents\school\programing 1600\ICA2\ICA2\obj\Debug\ICA2.pdb
