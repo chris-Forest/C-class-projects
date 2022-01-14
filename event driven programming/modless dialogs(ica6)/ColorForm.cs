@@ -1,8 +1,6 @@
 ﻿//*********************************************************************
 //Program:    ICA6 – modeless drawing
 //Author:     Chris Forest
-//Class:      CNT2f
-//Instructor: Kevin More
 //*********************************************************************
 
 using System;
