@@ -1,0 +1,7 @@
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\icas\chris_ica01_generics\bin\Debug\chris_ica01_generics.exe.config
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\icas\chris_ica01_generics\bin\Debug\chris_ica01_generics.exe
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\icas\chris_ica01_generics\bin\Debug\chris_ica01_generics.pdb
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\icas\chris_ica01_generics\obj\Debug\chris_ica01_generics.csprojAssemblyReference.cache
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\icas\chris_ica01_generics\obj\Debug\chris_ica01_generics.csproj.CoreCompileInputs.cache
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\icas\chris_ica01_generics\obj\Debug\chris_ica01_generics.exe
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\icas\chris_ica01_generics\obj\Debug\chris_ica01_generics.pdb
