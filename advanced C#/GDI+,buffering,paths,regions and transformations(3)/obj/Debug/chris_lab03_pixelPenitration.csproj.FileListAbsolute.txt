@@ -1,0 +1,10 @@
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\labs\chris_lab03_pixelPenitration\bin\Debug\chris_lab03_pixelPenitration.exe.config
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\labs\chris_lab03_pixelPenitration\bin\Debug\chris_lab03_pixelPenitration.exe
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\labs\chris_lab03_pixelPenitration\bin\Debug\chris_lab03_pixelPenitration.pdb
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\labs\chris_lab03_pixelPenitration\obj\Debug\chris_lab03_pixelPenitration.csprojAssemblyReference.cache
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\labs\chris_lab03_pixelPenitration\obj\Debug\chris_lab03_pixelPenitration.Form1.resources
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\labs\chris_lab03_pixelPenitration\obj\Debug\chris_lab03_pixelPenitration.Properties.Resources.resources
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\labs\chris_lab03_pixelPenitration\obj\Debug\chris_lab03_pixelPenitration.csproj.GenerateResource.cache
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\labs\chris_lab03_pixelPenitration\obj\Debug\chris_lab03_pixelPenitration.csproj.CoreCompileInputs.cache
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\labs\chris_lab03_pixelPenitration\obj\Debug\chris_lab03_pixelPenitration.exe
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\labs\chris_lab03_pixelPenitration\obj\Debug\chris_lab03_pixelPenitration.pdb
