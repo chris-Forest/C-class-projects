@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30503.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "chris_ica02_Generators", "chris_ica02_Generators.csproj", "{ECBA2857-CBAA-46DF-BD15-07AAE1CABDE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "generators", "generators\generators.csproj", "{7DA1FE46-D189-40D4-86C3-9EAC342FE007}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ECBA2857-CBAA-46DF-BD15-07AAE1CABDE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECBA2857-CBAA-46DF-BD15-07AAE1CABDE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECBA2857-CBAA-46DF-BD15-07AAE1CABDE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECBA2857-CBAA-46DF-BD15-07AAE1CABDE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DA1FE46-D189-40D4-86C3-9EAC342FE007}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DA1FE46-D189-40D4-86C3-9EAC342FE007}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DA1FE46-D189-40D4-86C3-9EAC342FE007}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DA1FE46-D189-40D4-86C3-9EAC342FE007}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1F62EDE6-B945-4FF3-AE88-9D3D1821719E}
+	EndGlobalSection
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN2019 - Subversion Support for Visual Studio
+	EndGlobalSection
+EndGlobal

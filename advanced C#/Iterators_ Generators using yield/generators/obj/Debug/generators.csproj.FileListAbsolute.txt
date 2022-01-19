@@ -1,0 +1,6 @@
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\icas\chris_ica02_Generators\generators\bin\Debug\generators.dll
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\icas\chris_ica02_Generators\generators\bin\Debug\generators.pdb
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\icas\chris_ica02_Generators\generators\obj\Debug\generators.csprojAssemblyReference.cache
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\icas\chris_ica02_Generators\generators\obj\Debug\generators.csproj.CoreCompileInputs.cache
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\icas\chris_ica02_Generators\generators\obj\Debug\generators.dll
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\icas\chris_ica02_Generators\generators\obj\Debug\generators.pdb
