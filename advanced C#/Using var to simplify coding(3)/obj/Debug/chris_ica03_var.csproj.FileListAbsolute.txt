@@ -1,0 +1,10 @@
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\icas\chris_ica03_var\bin\Debug\chris_ica03_var.exe.config
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\icas\chris_ica03_var\bin\Debug\chris_ica03_var.exe
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\icas\chris_ica03_var\bin\Debug\chris_ica03_var.pdb
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\icas\chris_ica03_var\obj\Debug\chris_ica03_var.csprojAssemblyReference.cache
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\icas\chris_ica03_var\obj\Debug\chris_ica03_var.Form1.resources
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\icas\chris_ica03_var\obj\Debug\chris_ica03_var.Properties.Resources.resources
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\icas\chris_ica03_var\obj\Debug\chris_ica03_var.csproj.GenerateResource.cache
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\icas\chris_ica03_var\obj\Debug\chris_ica03_var.csproj.CoreCompileInputs.cache
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\icas\chris_ica03_var\obj\Debug\chris_ica03_var.exe
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\icas\chris_ica03_var\obj\Debug\chris_ica03_var.pdb
