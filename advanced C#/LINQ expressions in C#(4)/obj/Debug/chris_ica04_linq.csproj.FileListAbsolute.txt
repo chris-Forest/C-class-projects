@@ -1,0 +1,7 @@
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\icas\chris_ica04_linq\bin\Debug\chris_ica04_linq.exe.config
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\icas\chris_ica04_linq\bin\Debug\chris_ica04_linq.exe
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\icas\chris_ica04_linq\bin\Debug\chris_ica04_linq.pdb
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\icas\chris_ica04_linq\obj\Debug\chris_ica04_linq.csprojAssemblyReference.cache
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\icas\chris_ica04_linq\obj\Debug\chris_ica04_linq.csproj.CoreCompileInputs.cache
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\icas\chris_ica04_linq\obj\Debug\chris_ica04_linq.exe
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\icas\chris_ica04_linq\obj\Debug\chris_ica04_linq.pdb
