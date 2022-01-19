@@ -1,13 +1,4 @@
-﻿//submission code 1202_CMPE2800_A01
 //Chris forest
-
-//Skill testing question: 
-//what assumptions are we making about the types that will 
-//participate as keys and values?
-
-//Answer: when generic extension method, the method itself will deduce from 
-//when it was called and use the specifieid type. 
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
