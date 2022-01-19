@@ -1,0 +1,12 @@
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\icas\Chrid_Hi_Low_Game\server\obj\Debug\server.csprojAssemblyReference.cache
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\icas\Chrid_Hi_Low_Game\server\obj\Debug\server.ServerForm.resources
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\icas\Chrid_Hi_Low_Game\server\obj\Debug\server.Properties.Resources.resources
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\icas\Chrid_Hi_Low_Game\server\obj\Debug\server.csproj.GenerateResource.cache
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\icas\Chrid_Hi_Low_Game\server\obj\Debug\server.csproj.CoreCompileInputs.cache
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\icas\Chrid_Hi_Low_Game\server\bin\Debug\server.exe.config
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\icas\Chrid_Hi_Low_Game\server\bin\Debug\server.exe
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\icas\Chrid_Hi_Low_Game\server\bin\Debug\server.pdb
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\icas\Chrid_Hi_Low_Game\server\bin\Debug\WinFrameLib.dll
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\icas\Chrid_Hi_Low_Game\server\obj\Debug\server.csproj.CopyComplete
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\icas\Chrid_Hi_Low_Game\server\obj\Debug\server.exe
+E:\school\comp engm yr2\term 4\2800-advanced c#\2800(most new)\icas\Chrid_Hi_Low_Game\server\obj\Debug\server.pdb
